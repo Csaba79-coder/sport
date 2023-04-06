@@ -23,12 +23,11 @@ public class FootballController {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", apiKey);
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
-        ResponseEntity<Object> response = restTemplate.exchange(
+        return restTemplate.exchange(
                 "https://api.sportmonks.com/v3/football/teams",
                 HttpMethod.GET,
                 entity,
                 Object.class
         );
-        return response;
     }
 }
